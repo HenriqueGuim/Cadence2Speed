@@ -1,0 +1,137 @@
+[ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 1; @symbol_classdef = [Stats,1,6,11]; ]
+class Stats {
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 1; ]
+    <init> {
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 1; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 2; @position = 13; @symbol_vardef = [total,2,13,18]; ]
+    protected
+    var total;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 3; @position = 13; @symbol_vardef = [max,3,13,16]; ]
+    protected
+    var max;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 4; @position = 13; @symbol_vardef = [count,4,13,18]; ]
+    protected
+    var count;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 6; @symbol_functiondef = [initialize,6,11,21]; ]
+    function initialize() as Void {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_6_24_6_35_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 6 26 ]
+        %tmp.1 = self;
+        symbol [ reset %tmp.2 6 26 31 ];
+        %tmp.2 = getv function %tmp.1 :reset;
+        invoke %tmp.1 %tmp.2();
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_6_24_6_35_stop:
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 8; @symbol_functiondef = [add,8,11,14]; @symbol_param<0> = [value,8,15,20]; ]
+    function add(value) {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_8_22_16_2_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 9 4 ]
+        symbol [ count %tmp.3 9 4 9 ];
+        %tmp.3 = getv ? :count;
+        %tmp.4 = add %tmp.3 1;
+        symbol [ count ? 9 4 9 ];
+        putv self :count dup %tmp.4;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 10 4 ]
+        %tmp.5 = lgetv %value;
+        symbol [ value %tmp.5 10 12 17 ];
+        symbol [ toDouble %tmp.6 10 18 26 ];
+        %tmp.6 = getv function %tmp.5 :toDouble;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        lputv %value %tmp.7;
+        symbol [ value %value 10 4 9 ];
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 11 4 ]
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_11_4_13_4_if_stmt:
+        %tmp.8 = lgetv %value;
+        symbol [ value %tmp.8 11 8 13 ];
+        symbol [ max %tmp.10 11 16 19 ];
+        %tmp.10 = getv ? :max;
+        %tmp.11 = gt %tmp.8 %tmp.10;
+        bf %tmp.11 @_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_11_4_13_4_if_end;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_11_4_13_4_if_true:
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_11_21_13_4_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 12 6 ]
+        %tmp.12 = lgetv %value;
+        symbol [ value %tmp.12 12 12 17 ];
+        symbol [ max ? 12 6 9 ];
+        putv self :max %tmp.12;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_11_21_13_4_stop:
+        goto @_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_11_4_13_4_if_end;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_11_4_13_4_if_end:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 14 4 ]
+        symbol [ total %tmp.13 14 4 9 ];
+        %tmp.13 = getv self :total;
+        %tmp.14 = lgetv %value;
+        symbol [ value %tmp.14 14 13 18 ];
+        %tmp.15 = add %tmp.13 %tmp.14;
+        symbol [ total ? 14 4 9 ];
+        putv self :total dup %tmp.15;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 15 4 ]
+        %tmp.16 = self;
+        symbol [ self %tmp.16 15 11 15 ];
+        ret %tmp.16;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_8_22_16_2_stop:
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 18; @symbol_functiondef = [average,18,11,18]; ]
+    function average() {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_18_21_24_2_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 19 4 ]
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_19_4_23_4_if_stmt:
+        symbol [ count %tmp.2 19 8 13 ];
+        %tmp.2 = getv ? :count;
+        %tmp.3 = 0;
+        %tmp.4 = gt %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_19_4_23_4_if_else_false;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_19_4_23_4_if_true:
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_19_19_21_4_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 20 6 ]
+        symbol [ total %tmp.6 20 13 18 ];
+        %tmp.6 = getv ? :total;
+        symbol [ count %tmp.8 20 21 26 ];
+        %tmp.8 = getv ? :count;
+        %tmp.9 = div %tmp.6 %tmp.8;
+        ret %tmp.9;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_19_19_21_4_stop:
+        goto @_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_19_4_23_4_if_end;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_19_4_23_4_if_else_false:
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_21_11_23_4_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 22 6 ]
+        %tmp.10 = 0;
+        ret %tmp.10;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_21_11_23_4_stop:
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_19_4_23_4_if_end:
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_18_21_24_2_stop:
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 26; @symbol_functiondef = [maximum,26,11,18]; ]
+    function maximum() {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_26_21_26_35_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 26 23 ]
+        symbol [ max %tmp.2 26 30 33 ];
+        %tmp.2 = getv ? :max;
+        ret %tmp.2;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_26_21_26_35_stop:
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 28; @symbol_functiondef = [reset,28,11,16]; ]
+    function reset() {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_28_19_32_2_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 29 4 ]
+        %tmp.1 = 0.0d;
+        symbol [ total ? 29 4 9 ];
+        putv self :total %tmp.1;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 30 4 ]
+        %tmp.2 = 0.0d;
+        symbol [ max ? 30 4 7 ];
+        putv self :max %tmp.2;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc" 31 4 ]
+        %tmp.3 = 0;
+        symbol [ count ? 31 4 9 ];
+        putv self :count %tmp.3;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_Stats_mc_28_19_32_2_stop:
+    }
+}
+[ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/Stats.mc"; @line = 1; ]
+<init> {
+}

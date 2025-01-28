@@ -1,0 +1,32 @@
+import Toybox.Lang;
+using Toybox.WatchUi;
+using Toybox.WatchUi as Ui;
+using Toybox.Graphics;
+using Toybox.Graphics as Gfx;
+
+module Rez {
+    module Drawables {
+        (:initialized) var LauncherIcon as ResourceId;
+    } // Drawables
+
+    module Strings {
+        (:initialized) var switchPrompt as ResourceId;
+        (:initialized) var speed_label as ResourceId;
+        (:initialized) var wheelCircumferencePrompt as ResourceId;
+        (:initialized) var switchError as ResourceId;
+        (:initialized) var chainringSizePrompt as ResourceId;
+        (:initialized) var label as ResourceId;
+        (:initialized) var cogSizeTitle as ResourceId;
+        (:initialized) var cogSizeError as ResourceId;
+        (:initialized) var max_speed_label as ResourceId;
+        (:initialized) var avg_speed_label as ResourceId;
+        (:initialized) var AppName as ResourceId;
+        (:initialized) var switchTitle as ResourceId;
+        (:initialized) var speed_units as ResourceId;
+        (:initialized) var chainringSizeTitle as ResourceId;
+        (:initialized) var chainringSizeError as ResourceId;
+        (:initialized) var wheelCircumferenceTitle as ResourceId;
+        (:initialized) var wheelCircumferenceError as ResourceId;
+        (:initialized) var cogSizePrompt as ResourceId;
+    } // Strings
+} // Rez

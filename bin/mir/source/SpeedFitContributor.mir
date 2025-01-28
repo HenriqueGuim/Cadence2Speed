@@ -1,0 +1,400 @@
+[ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [WatchUi,1,13,20]; ]
+using Toybox.WatchUi;
+[ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [System,2,13,19]; ]
+using Toybox.System;
+[ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [FitContributor,3,13,27]; ]
+using Toybox.FitContributor;
+[ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Math,4,13,17]; ]
+using Toybox.Math;
+[ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 6; @symbol_classdef = [SpeedFitContributor,6,6,25]; ]
+class SpeedFitContributor {
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 7; @position = 13; @symbol_vardef = [currentSpeedField,7,13,30]; ]
+    protected
+    var currentSpeedField;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 8; @position = 13; @symbol_vardef = [lapAvgSpeedField,8,13,29]; ]
+    protected
+    var lapAvgSpeedField;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 9; @position = 13; @symbol_vardef = [sessionAvgSpeedField,9,13,33]; ]
+    protected
+    var sessionAvgSpeedField;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 10; @position = 13; @symbol_vardef = [lapMaxSpeedField,10,13,29]; ]
+    protected
+    var lapMaxSpeedField;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 11; @position = 13; @symbol_vardef = [sessionMaxSpeedField,11,13,33]; ]
+    protected
+    var sessionMaxSpeedField;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 12; @position = 13; @symbol_vardef = [lapStats,12,13,21]; ]
+    protected
+    var lapStats;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 13; @position = 13; @symbol_vardef = [sessionStats,13,13,25]; ]
+    protected
+    var sessionStats;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 14; @position = 13; @symbol_vardef = [timerRunning,14,13,25]; ]
+    protected
+    var timerRunning;
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 16; @symbol_functiondef = [initialize,16,11,21]; @symbol_param<0> = [dataField,16,22,31]; ]
+    function initialize(dataField) as Void {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_16_33_68_2_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 17 4 ]
+        %tmp.1 = lgetv %dataField;
+        symbol [ dataField %tmp.1 17 24 33 ];
+        symbol [ createField %tmp.2 17 34 45 ];
+        %tmp.2 = getv function %tmp.1 :createField;
+        %tmp.3 = "speed";
+        %tmp.4 = 0;
+        symbol [ FitContributor %tmp.5 18 18 32 ];
+        %tmp.5 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT8 %tmp.6 18 33 48 ];
+        %tmp.6 = getv %tmp.5 :DATA_TYPE_UINT8;
+        %tmp.7 = newd 3;
+        %tmp.9 = const :nativeNum;
+        %tmp.10 = 6;
+        %tmp.11 = dup %tmp.7;
+        %tmp.12 = aputv %tmp.11 %tmp.9 %tmp.10;
+        %tmp.14 = const :mesgType;
+        symbol [ FitContributor %tmp.15 21 20 34 ];
+        %tmp.15 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_RECORD %tmp.16 21 35 51 ];
+        %tmp.16 = getv %tmp.15 :MESG_TYPE_RECORD;
+        %tmp.17 = dup %tmp.12;
+        %tmp.18 = aputv %tmp.17 %tmp.14 %tmp.16;
+        %tmp.20 = const :units;
+        %tmp.21 = "m/s";
+        %tmp.22 = dup %tmp.18;
+        %tmp.23 = aputv %tmp.22 %tmp.20 %tmp.21;
+        %tmp.24 = invoke %tmp.1 %tmp.2(%tmp.3, %tmp.4, %tmp.6, %tmp.23);
+        symbol [ currentSpeedField ? 17 4 21 ];
+        putv self :currentSpeedField %tmp.24;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 26 4 ]
+        %tmp.25 = lgetv %dataField;
+        symbol [ dataField %tmp.25 26 23 32 ];
+        symbol [ createField %tmp.26 26 33 44 ];
+        %tmp.26 = getv function %tmp.25 :createField;
+        %tmp.27 = "avg_speed";
+        %tmp.28 = 1;
+        symbol [ FitContributor %tmp.29 27 22 36 ];
+        %tmp.29 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT8 %tmp.30 27 37 52 ];
+        %tmp.30 = getv %tmp.29 :DATA_TYPE_UINT8;
+        %tmp.31 = newd 3;
+        %tmp.33 = const :nativeNum;
+        %tmp.34 = 13;
+        %tmp.35 = dup %tmp.31;
+        %tmp.36 = aputv %tmp.35 %tmp.33 %tmp.34;
+        %tmp.38 = const :mesgType;
+        symbol [ FitContributor %tmp.39 30 20 34 ];
+        %tmp.39 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_LAP %tmp.40 30 35 48 ];
+        %tmp.40 = getv %tmp.39 :MESG_TYPE_LAP;
+        %tmp.41 = dup %tmp.36;
+        %tmp.42 = aputv %tmp.41 %tmp.38 %tmp.40;
+        %tmp.44 = const :units;
+        %tmp.45 = "m/s";
+        %tmp.46 = dup %tmp.42;
+        %tmp.47 = aputv %tmp.46 %tmp.44 %tmp.45;
+        %tmp.48 = invoke %tmp.25 %tmp.26(%tmp.27, %tmp.28, %tmp.30, %tmp.47);
+        symbol [ lapAvgSpeedField ? 26 4 20 ];
+        putv self :lapAvgSpeedField %tmp.48;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 35 4 ]
+        %tmp.49 = lgetv %dataField;
+        symbol [ dataField %tmp.49 35 23 32 ];
+        symbol [ createField %tmp.50 35 33 44 ];
+        %tmp.50 = getv function %tmp.49 :createField;
+        %tmp.51 = "max_speed";
+        %tmp.52 = 2;
+        symbol [ FitContributor %tmp.53 36 22 36 ];
+        %tmp.53 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT8 %tmp.54 36 37 52 ];
+        %tmp.54 = getv %tmp.53 :DATA_TYPE_UINT8;
+        %tmp.55 = newd 3;
+        %tmp.57 = const :nativeNum;
+        %tmp.58 = 14;
+        %tmp.59 = dup %tmp.55;
+        %tmp.60 = aputv %tmp.59 %tmp.57 %tmp.58;
+        %tmp.62 = const :mesgType;
+        symbol [ FitContributor %tmp.63 39 20 34 ];
+        %tmp.63 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_LAP %tmp.64 39 35 48 ];
+        %tmp.64 = getv %tmp.63 :MESG_TYPE_LAP;
+        %tmp.65 = dup %tmp.60;
+        %tmp.66 = aputv %tmp.65 %tmp.62 %tmp.64;
+        %tmp.68 = const :units;
+        %tmp.69 = "m/s";
+        %tmp.70 = dup %tmp.66;
+        %tmp.71 = aputv %tmp.70 %tmp.68 %tmp.69;
+        %tmp.72 = invoke %tmp.49 %tmp.50(%tmp.51, %tmp.52, %tmp.54, %tmp.71);
+        symbol [ lapMaxSpeedField ? 35 4 20 ];
+        putv self :lapMaxSpeedField %tmp.72;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 44 4 ]
+        %tmp.73 = lgetv %dataField;
+        symbol [ dataField %tmp.73 44 27 36 ];
+        symbol [ createField %tmp.74 44 37 48 ];
+        %tmp.74 = getv function %tmp.73 :createField;
+        %tmp.75 = "avg_speed";
+        %tmp.76 = 3;
+        symbol [ FitContributor %tmp.77 45 22 36 ];
+        %tmp.77 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT8 %tmp.78 45 37 52 ];
+        %tmp.78 = getv %tmp.77 :DATA_TYPE_UINT8;
+        %tmp.79 = newd 3;
+        %tmp.81 = const :nativeNum;
+        %tmp.82 = 14;
+        %tmp.83 = dup %tmp.79;
+        %tmp.84 = aputv %tmp.83 %tmp.81 %tmp.82;
+        %tmp.86 = const :mesgType;
+        symbol [ FitContributor %tmp.87 48 20 34 ];
+        %tmp.87 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_SESSION %tmp.88 48 35 52 ];
+        %tmp.88 = getv %tmp.87 :MESG_TYPE_SESSION;
+        %tmp.89 = dup %tmp.84;
+        %tmp.90 = aputv %tmp.89 %tmp.86 %tmp.88;
+        %tmp.92 = const :units;
+        %tmp.93 = "m/s";
+        %tmp.94 = dup %tmp.90;
+        %tmp.95 = aputv %tmp.94 %tmp.92 %tmp.93;
+        %tmp.96 = invoke %tmp.73 %tmp.74(%tmp.75, %tmp.76, %tmp.78, %tmp.95);
+        symbol [ sessionAvgSpeedField ? 44 4 24 ];
+        putv self :sessionAvgSpeedField %tmp.96;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 53 4 ]
+        %tmp.97 = lgetv %dataField;
+        symbol [ dataField %tmp.97 53 27 36 ];
+        symbol [ createField %tmp.98 53 37 48 ];
+        %tmp.98 = getv function %tmp.97 :createField;
+        %tmp.99 = "max_cadence";
+        %tmp.100 = 4;
+        symbol [ FitContributor %tmp.101 54 24 38 ];
+        %tmp.101 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT8 %tmp.102 54 39 54 ];
+        %tmp.102 = getv %tmp.101 :DATA_TYPE_UINT8;
+        %tmp.103 = newd 3;
+        %tmp.105 = const :nativeNum;
+        %tmp.106 = 15;
+        %tmp.107 = dup %tmp.103;
+        %tmp.108 = aputv %tmp.107 %tmp.105 %tmp.106;
+        %tmp.110 = const :mesgType;
+        symbol [ FitContributor %tmp.111 57 20 34 ];
+        %tmp.111 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_SESSION %tmp.112 57 35 52 ];
+        %tmp.112 = getv %tmp.111 :MESG_TYPE_SESSION;
+        %tmp.113 = dup %tmp.108;
+        %tmp.114 = aputv %tmp.113 %tmp.110 %tmp.112;
+        %tmp.116 = const :units;
+        %tmp.117 = "m/s";
+        %tmp.118 = dup %tmp.114;
+        %tmp.119 = aputv %tmp.118 %tmp.116 %tmp.117;
+        %tmp.120 = invoke %tmp.97 %tmp.98(%tmp.99, %tmp.100, %tmp.102, %tmp.119);
+        symbol [ sessionMaxSpeedField ? 53 4 24 ];
+        putv self :sessionMaxSpeedField %tmp.120;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 62 4 ]
+        symbol [ Stats %tmp.124 62 19 24 ];
+        %tmp.124 = getv ? :Stats;
+        %tmp.121 = newc %tmp.124 ();
+        symbol [ lapStats ? 62 4 12 ];
+        putv self :lapStats %tmp.121;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 63 4 ]
+        symbol [ Stats %tmp.128 63 23 28 ];
+        %tmp.128 = getv ? :Stats;
+        %tmp.125 = newc %tmp.128 ();
+        symbol [ sessionStats ? 63 4 16 ];
+        putv self :sessionStats %tmp.125;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 65 4 ]
+        %tmp.129 = true;
+        symbol [ timerRunning ? 65 4 16 ];
+        putv self :timerRunning %tmp.129;
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 66 4 ]
+        %tmp.130 = self;
+        symbol [ compute %tmp.131 66 4 11 ];
+        %tmp.131 = getv function %tmp.130 :compute;
+        %tmp.132 = 0;
+        invoke %tmp.130 %tmp.131(%tmp.132);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 67 4 ]
+        %tmp.133 = false;
+        symbol [ timerRunning ? 67 4 16 ];
+        putv self :timerRunning %tmp.133;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_16_33_68_2_stop:
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 70; @symbol_functiondef = [compute,70,11,18]; @symbol_param<0> = [speedValue,70,19,29]; ]
+    function compute(speedValue) {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_70_31_92_2_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 71 4 ]
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_71_4_73_4_if_stmt:
+        symbol [ timerRunning %tmp.2 71 9 21 ];
+        %tmp.2 = getv ? :timerRunning;
+        %tmp.3 = not %tmp.2;
+        bf %tmp.3 @_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_71_4_73_4_if_end;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_71_4_73_4_if_true:
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_71_23_73_4_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 72 6 ]
+        ret ?;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_71_23_73_4_stop:
+        goto @_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_71_4_73_4_if_end;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_71_4_73_4_if_end:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 75 4 ]
+        symbol [ currentSpeedField %tmp.5 75 4 21 ];
+        %tmp.5 = getv ? :currentSpeedField;
+        symbol [ setData %tmp.6 75 22 29 ];
+        %tmp.6 = getv function %tmp.5 :setData;
+        %tmp.7 = lgetv %speedValue;
+        symbol [ speedValue %tmp.7 75 30 40 ];
+        invoke %tmp.5 %tmp.6(%tmp.7);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 77 4 ]
+        symbol [ lapStats %tmp.9 77 4 12 ];
+        %tmp.9 = getv ? :lapStats;
+        symbol [ add %tmp.10 77 13 16 ];
+        %tmp.10 = getv function %tmp.9 :add;
+        %tmp.11 = lgetv %speedValue;
+        symbol [ speedValue %tmp.11 77 17 27 ];
+        invoke %tmp.9 %tmp.10(%tmp.11);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 78 4 ]
+        symbol [ sessionStats %tmp.13 78 4 16 ];
+        %tmp.13 = getv ? :sessionStats;
+        symbol [ add %tmp.14 78 17 20 ];
+        %tmp.14 = getv function %tmp.13 :add;
+        %tmp.15 = lgetv %speedValue;
+        symbol [ speedValue %tmp.15 78 21 31 ];
+        invoke %tmp.13 %tmp.14(%tmp.15);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 80 4 ]
+        symbol [ lapAvgSpeedField %tmp.17 80 4 20 ];
+        %tmp.17 = getv ? :lapAvgSpeedField;
+        symbol [ setData %tmp.18 80 21 28 ];
+        %tmp.18 = getv function %tmp.17 :setData;
+        symbol [ lapStats %tmp.20 80 29 37 ];
+        %tmp.20 = getv ? :lapStats;
+        symbol [ average %tmp.21 80 38 45 ];
+        %tmp.21 = getv function %tmp.20 :average;
+        %tmp.22 = invoke %tmp.20 %tmp.21();
+        invoke %tmp.17 %tmp.18(%tmp.22);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 81 4 ]
+        symbol [ lapMaxSpeedField %tmp.24 81 4 20 ];
+        %tmp.24 = getv ? :lapMaxSpeedField;
+        symbol [ setData %tmp.25 81 21 28 ];
+        %tmp.25 = getv function %tmp.24 :setData;
+        symbol [ lapStats %tmp.27 81 29 37 ];
+        %tmp.27 = getv ? :lapStats;
+        symbol [ maximum %tmp.28 81 38 45 ];
+        %tmp.28 = getv function %tmp.27 :maximum;
+        %tmp.29 = invoke %tmp.27 %tmp.28();
+        invoke %tmp.24 %tmp.25(%tmp.29);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 83 4 ]
+        symbol [ sessionAvgSpeedField %tmp.31 83 4 24 ];
+        %tmp.31 = getv ? :sessionAvgSpeedField;
+        symbol [ setData %tmp.32 83 25 32 ];
+        %tmp.32 = getv function %tmp.31 :setData;
+        symbol [ sessionStats %tmp.34 83 33 45 ];
+        %tmp.34 = getv ? :sessionStats;
+        symbol [ average %tmp.35 83 46 53 ];
+        %tmp.35 = getv function %tmp.34 :average;
+        %tmp.36 = invoke %tmp.34 %tmp.35();
+        invoke %tmp.31 %tmp.32(%tmp.36);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 84 4 ]
+        symbol [ sessionMaxSpeedField %tmp.38 84 4 24 ];
+        %tmp.38 = getv ? :sessionMaxSpeedField;
+        symbol [ setData %tmp.39 84 25 32 ];
+        %tmp.39 = getv function %tmp.38 :setData;
+        symbol [ sessionStats %tmp.41 84 33 45 ];
+        %tmp.41 = getv ? :sessionStats;
+        symbol [ maximum %tmp.42 84 46 53 ];
+        %tmp.42 = getv function %tmp.41 :maximum;
+        %tmp.43 = invoke %tmp.41 %tmp.42();
+        invoke %tmp.38 %tmp.39(%tmp.43);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 86 4 ]
+        symbol [ System %tmp.44 86 4 10 ];
+        %tmp.44 = getm $.Toybox.System;
+        symbol [ println %tmp.45 86 11 18 ];
+        %tmp.45 = getv function %tmp.44 :println;
+        %tmp.46 = "Fit: cadence = ";
+        %tmp.47 = lgetv %speedValue;
+        symbol [ speedValue %tmp.47 87 26 36 ];
+        %tmp.48 = add %tmp.46 %tmp.47;
+        %tmp.49 = ", lapAvg = ";
+        %tmp.50 = add %tmp.48 %tmp.49;
+        symbol [ lapStats %tmp.52 88 24 32 ];
+        %tmp.52 = getv ? :lapStats;
+        symbol [ average %tmp.53 88 33 40 ];
+        %tmp.53 = getv function %tmp.52 :average;
+        %tmp.54 = invoke %tmp.52 %tmp.53();
+        %tmp.55 = add %tmp.50 %tmp.54;
+        %tmp.56 = ", lapMax = ";
+        %tmp.57 = add %tmp.55 %tmp.56;
+        symbol [ lapStats %tmp.59 89 24 32 ];
+        %tmp.59 = getv ? :lapStats;
+        symbol [ maximum %tmp.60 89 33 40 ];
+        %tmp.60 = getv function %tmp.59 :maximum;
+        %tmp.61 = invoke %tmp.59 %tmp.60();
+        %tmp.62 = add %tmp.57 %tmp.61;
+        %tmp.63 = ", sessionAvg = ";
+        %tmp.64 = add %tmp.62 %tmp.63;
+        symbol [ sessionStats %tmp.66 90 28 40 ];
+        %tmp.66 = getv ? :sessionStats;
+        symbol [ average %tmp.67 90 41 48 ];
+        %tmp.67 = getv function %tmp.66 :average;
+        %tmp.68 = invoke %tmp.66 %tmp.67();
+        %tmp.69 = add %tmp.64 %tmp.68;
+        %tmp.70 = ", sessionMax = ";
+        %tmp.71 = add %tmp.69 %tmp.70;
+        symbol [ sessionStats %tmp.73 91 28 40 ];
+        %tmp.73 = getv ? :sessionStats;
+        symbol [ maximum %tmp.74 91 41 48 ];
+        %tmp.74 = getv function %tmp.73 :maximum;
+        %tmp.75 = invoke %tmp.73 %tmp.74();
+        %tmp.76 = add %tmp.71 %tmp.75;
+        invoke %tmp.44 %tmp.45(%tmp.76);
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_70_31_92_2_stop:
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 94; @symbol_functiondef = [setTimerRunning,94,11,26]; @symbol_param<0> = [enabled,94,27,34]; ]
+    function setTimerRunning(enabled) {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_94_36_94_62_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 94 38 ]
+        %tmp.1 = lgetv %enabled;
+        symbol [ enabled %tmp.1 94 53 60 ];
+        symbol [ timerRunning ? 94 38 50 ];
+        putv self :timerRunning %tmp.1;
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_94_36_94_62_stop:
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 96; @symbol_functiondef = [onTimerReset,96,11,23]; ]
+    function onTimerReset() {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_96_26_99_2_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 97 4 ]
+        symbol [ System %tmp.1 97 4 10 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ println %tmp.2 97 11 18 ];
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "timer reset";
+        invoke %tmp.1 %tmp.2(%tmp.3);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 98 4 ]
+        symbol [ sessionStats %tmp.5 98 4 16 ];
+        %tmp.5 = getv ? :sessionStats;
+        symbol [ reset %tmp.6 98 17 22 ];
+        %tmp.6 = getv function %tmp.5 :reset;
+        invoke %tmp.5 %tmp.6();
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_96_26_99_2_stop:
+    }
+    [ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 101; @symbol_functiondef = [onTimerLap,101,11,21]; ]
+    function onTimerLap() {
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_101_24_104_2_start:
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 102 4 ]
+        symbol [ System %tmp.1 102 4 10 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ println %tmp.2 102 11 18 ];
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "timer lap";
+        invoke %tmp.1 %tmp.2(%tmp.3);
+[ "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc" 103 4 ]
+        symbol [ lapStats %tmp.5 103 4 12 ];
+        %tmp.5 = getv ? :lapStats;
+        symbol [ reset %tmp.6 103 13 18 ];
+        %tmp.6 = getv function %tmp.5 :reset;
+        invoke %tmp.5 %tmp.6();
+_Users_henrique_guimaraes_Documents_Cadence2Speed_Cadence2Speed_source_SpeedFitContributor_mc_101_24_104_2_stop:
+    }
+}
+[ @file = "/Users/henrique.guimaraes/Documents/Cadence2Speed/Cadence2Speed/source/SpeedFitContributor.mc"; @line = 1; ]
+<init> {
+}
